@@ -28,7 +28,7 @@ def convert_pdf(path):
     for page in pages:
         file_name = path.split(".")[0] + "_" + str(page_count) + ".png"
         file_path = os.path.join(path.split(".")[0], file_name)
-        print("1", file_name)
+        # print("1", file_name)
         page.save(file_path, 'PNG')
         page_count += 1
     return page_count, path
@@ -56,8 +56,8 @@ def image_to_text(page_count, path):
     image_data = {}
     for i in range(1, page_count):
         file_name = path.split(".")[0] + "_" + str(i) + ".png"
-        print("2", file_name)
-        print("3", path.split(".")[0] + "/" + file_name)
+        # print("2", file_name)
+        # print("3", path.split(".")[0] + "/" + file_name)
         text = str(pt.image_to_string(path.split(".")[0] + "/" + file_name))
         image_data[i] = text
     return image_data
